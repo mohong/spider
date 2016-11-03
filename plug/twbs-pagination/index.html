@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页插件</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h2><a href="http://esimakin.github.io/twbs-pagination/">官网</a></h2>
+
+<ul class="pagination-sm"></ul>
+<div id="page-content"></div>
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="jquery.twbsPagination.js"></script>
+<script>
+    $('.pagination-sm').twbsPagination({
+        totalPages: 35,
+        visiblePages: 7,
+        first: '首页',
+        last: '尾页',
+        prev: '上一页',
+        next: '下一页',
+        onPageClick: function (event, page) {
+            $('#page-content').text('Page ' + page);
+        }
+    });
+</script>
+</body>
+</html>
