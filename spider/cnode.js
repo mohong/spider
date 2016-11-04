@@ -25,10 +25,19 @@ CNode.prototype = {
                 var $ = cheerio.load(sres.text);
                 //totalpages
                 var lastPageUrl = $('.pagination li:last-child').find('a').attr('href');
-                console.log(lastPageUrl);
-                var queryUrl = url.parse(lastPageUrl).query;    //tab=all&page=470
-                var obj = qs.parse(queryUrl);                   //解析为对象
-                var totalPages = obj.page;
+
+                if(lastPageUrl!=undefined){
+                    var queryUrl = url.parse(lastPageUrl).query;
+                    console.log(queryUrl);
+                    var obj= qs.parse(queryUrl);
+                    console.log(obj);
+
+                    var totalPages=obj.page;
+                    console.log(totalPages);
+                }else{
+                    var totalPages=$('.pagination').attr('current_page');
+                    console.log(totalPages);
+                }
 
                 var items  = [];
                 $('#topic_list .topic_title').each(function (index,element) {
@@ -43,6 +52,7 @@ CNode.prototype = {
                 });
                 items.totalPages = totalPages;
                 res.send(items);
+                //res.render('index', { title: '资源列表'});
             })
     }
 };
