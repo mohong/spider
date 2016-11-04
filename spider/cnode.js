@@ -33,7 +33,7 @@ CNode.prototype = {
                 var items  = [];
                 $('#topic_list .topic_title').each(function (index,element) {
                     var $element = $(element);
-                    var type = $element.parent().parent().find('.topic_tab').text();
+                    var type = $element.parent().parent().find('.put_top').text();
                     items.push({
                         title: $element.attr('title'),
                         href: $element.attr('href'),
